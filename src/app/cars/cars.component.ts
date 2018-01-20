@@ -7,22 +7,21 @@ import { Component } from '@angular/core';
 })
 export class CarsComponent {
   carName = '';
-  addCarStatus = false;
-  cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada', 'Bently'];
-  dates = [
-    new Date(2015, 4, 3).toDateString(),
-    new Date(2015, 2, 1).toDateString(),
-    new Date(2018, 1, 2).toDateString()
-  ];
- 
+  carYear = 2017;
+  cars: [{name: string, year: number}] = 
+    [
+      {name: 'Audi', year: 2015},
+      {name: 'BMW', year: 2017},
+      {name: 'Mazda', year: 2014},
+    ]
+  
   constructor(){
-
   }
 
   addCar(){
-    this.addCarStatus = true; 
-    this.cars.push(this.carName);
-    this.carName = ''; 
-  }
+    this.cars.push({name: this.carName, year: this.carYear});
 
+    this.carName = ''; 
+    this.carYear = 2017;
+  }
 }
